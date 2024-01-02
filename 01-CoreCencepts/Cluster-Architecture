@@ -1,0 +1,34 @@
+The purpose of kubernetes is to host the applications in the form of containers in an automated fashion 
+sothat we can easily deploy many applicatons as erquired and easily enable the communication 
+
+We have two kinds of ships in this example 
+==========================================================================================
+1) cargo ships
+--------------
+	Cargo ships that does the actual work of carring containers across the sea 
+2)control ships
+---------------
+	That are responsible for monitoring and managing the cargo ships
+============================================================================================
+
+The worker node in the cluster are ships that can load containers , But sombody needs to load the containers on the 
+ships and not just load, plan how to load identify the right ships , store information about the ships ,monitor and
+trac the location of the container on the ship , managing the whole loading process ..etc..etc..!This is done by
+control ships . The control ship relate to master Node in the cluster:
+Master Node Storing informtion regarding different nodes , Planning which container goes where ,monitoring the node and container etc..etc.!
+
+The master node does all of these using a set of components together known as the control plane components, we will look at each of these components now.
+
+There are many containers are loaded and unloaded on daily basis sothat we need to maintain information about the 
+different ships, what container on in which ships , and what time it was loaded ..etc...etc
+All of these are stored in highly available key:value store known us etcd. etcd is the databse that store information in a key value format.
+
+When ship arrives we need to load containers on them using cranes , The cranes identify the containers that need to be placed on ships . It identifies the right ship based on its size , its capacity, the number of containers already on the ship, and the type of container it allowd to carry, etc..etc..!..so those are schedulers in kuberntes cluster. A schduler identifies the right node to place a container based on the containers resource requirements and the worker node capacity and other policies such as taints and tollerations or node affinity rules on them like that.
+
+kube-API-Server is the primary management componets of kubernetes , The kube-API-Server is responsible for archestrating all operations within the cluster. It exposes the kubernetes API , which is used by externel users to perform management operations on the cluster.
+
+
+Every cargo ship have a captain The captain is responsible for managing all on those activities on these ships ,
+The captain is responsible for starting with letting the mastership know that they are interested in joining the 
+	group, receving information about the container to be loaded on the ship and loading the approprite containers as required, sending report back tothe master about the status of this ship and the status of the containers on the ship etc..etc..!....The captain ofthe ship is the kubelet in Kubernetes. A kubelet is an agent that runs on each nodes in the cluster. It listens the instrucion from the KubeAPI server and deployes or destroies containers on the nodes as required. The kubeAPi server periodically fetches status reports from kubelet to monitor the status of the nodes and containers on them. The kubelet was more of a captain on the ship that manages containers on the ship, But the applications running on the worker nodes to be able to communicate each other. The communication that was enabled between worker nodes known as kube-proxy service.
+	The kube-proxy service ensures that the necessary rules are in place on the worker nodes to allow the containers running on them to reach each other 
