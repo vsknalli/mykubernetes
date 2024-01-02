@@ -1,0 +1,10 @@
+Kube-API-server:
+================
+	Kube-API-Server is the primary component in kubernetes, When you run kubectl command, the kubectl utility 
+infact reaching out to the kube-API-server . The kube-API-Server first authenticate the request and validates it, 
+Then retrives the data from the etcd cluster and respond back with the requested information.	
+Example:
+-------
+	Lets look an example of creating a pod, when you do that as before, the request is authenticated first and then validated, in this case API-Server creates a pod object without assigning it to an node. Updates the informationin the etcd server & updates the user that the pod has been created.The scheduler contineously monitors the API server and realize that there is a new pod with new node assigned. The scheduler identifies the right node to place the new pod on and communicates that back to the kube-api server.The API-Server then updates the information in the etcd cluster , API-Server then passes that information to the kubelet in the appropriate worker node. The kubelet then creates the pod on the node and instructs the container runtime engine to deploy the application image. Once done the kubelet updates the status back to the API-Server and API-Server then updates the data back in the etcd cluster.
+
+

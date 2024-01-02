@@ -1,0 +1,19 @@
+ETCD:
+====
+
+1) What is ETCD?
+2) What is key-Vlue store?
+3) How to operate ETCD?
+
+4) What is distributed system?
+
+What is ETCD?
+It is disdributed, relaiable, key-value store that is simple secure and Fast . 
+Key-Value store--> Traditionally , database have been in tabulet format, we heard about SQL or relational databse
+They store data in the form of rows and coloumns.
+
+The etcd data store stores information regarding the cluster such as nodes,Pods,secrets, accounts, roles, rolebinding, and others.
+
+Every information we see from kubectl get command get information from the etcd server .
+Every change you make to your cluster such as adding additional nodes, deploying pods or replica sets are updated inthe etcd server.
+
