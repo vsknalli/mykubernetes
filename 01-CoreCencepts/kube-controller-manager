@@ -1,0 +1,10 @@
+kubecontroller manager:
+=======================
+	Kubecontroller Manager manags varies controllers in kubernetes, Controller is a process that continuousely 
+monitor the state of various components within the system and work towards bringing the whole system to the desired fucntioning state. 
+
+Node-controller-> responsible for monitoring the status of the nodes and tacking nessary actions to keep the application running.
+The node-controller checks the status of the nodes every five secounds, That way the node controller can monitor the health of the nodes. if it stops receiving hear-beat from a node the node is marker unreachable,but it waits for 40 secounds before marking it unreachable. 
+	After a node is marked unreachable it gives it five minities to come backup, if it doesn't, it removes the pods assigned to that node and provision them on the healthy ones ifthe PODs are part of replicaset . 
+
+Replication-controller -> it is responsible for monitoring the status of replicasets and ensuring that the desired number of PODs are available at all times within the set. if the pod dies,it creates the another one. 
