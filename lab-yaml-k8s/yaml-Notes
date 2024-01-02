@@ -1,0 +1,5 @@
+A kubernetes defination file allways contains 4 top level fields 1-API-version 2-kind 3-metadata 4-Spec these are the top level or root level properties.
+
+# kubectl create -f pod-definition.yml
+
+

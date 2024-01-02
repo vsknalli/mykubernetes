@@ -1,0 +1,3 @@
+kube-proxy:
+===========
+	Within a kubernetes cluster, every pod can reach every other pod.This is accomplished by deploying a pod netowrking solution to the cluster, A pod network is an internel virtual network that spans accross all the nodes in the cluster to with all the pods connect to . to this nework they're communicate with each other, 

@@ -1,0 +1,6 @@
+HOw to create a pod?
+
+# kubectl run nginx --image nginx 
+
+How do we see the list of pods which we have created?
+# kubectl get pods 

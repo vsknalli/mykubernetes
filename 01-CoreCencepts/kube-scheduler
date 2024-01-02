@@ -1,0 +1,5 @@
+	Kubernetes scheduler is reponsible for schedulling pods on nodes, The scheduler is only reponsible for deceding with pods goes on which node. It doesn't place the pod on the nodes. Thats the job of kubelet, The kubelet or the captain of the ship.
+
+Why we need scheduller:
+----------------------
+	When we are many ships and many containers, we want to make sure the right container ends up on the right ship. 
