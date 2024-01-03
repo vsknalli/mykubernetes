@@ -8,4 +8,40 @@ To view detailed information about the pod
 
 # kubectl describe pod 	myapp-pod
 
+# kubectl delete pod webapp
+
+# kubectl run redis --image=redis --dry-run -o yaml
+
+# kubectl run redis --image=redis --dry-run=client -o yaml  > redis.yaml
+
+# kubectl create -f redis.yaml 
+
+# kubectl explain replicaset  --->  FROM this out put we can find VERSION
+
+# kubectl scale rs new-replia-set --replicas=5
+
+
+Deployment:
+===========
+# kubectl create deployment --image=nginx nginx
+
+# kubectl create deployment --image=nginx nginx --dry-run=client -o yaml
+
+Generate Deployment YAML file (-o yaml). Don’t create it(–dry-run) and save it to a file.
+----------------------------------------------------------------------------------------------
+
+# kubectl create deployment --image=nginx nginx --dry-run=client -o yaml > nginx-deployment.yaml
+
+
+
+
+
+
+
+
+
+
+
+
+
 
